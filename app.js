@@ -4,6 +4,7 @@ let sec = document.getElementById("sec");
 let date = document.getElementById("date");
 let month = document.getElementById("month");
 let year = document.getElementById("year");
+let ampm = document.getElementById("ampm");
 
 setInterval(() => {
     let currentTime = new Date();
@@ -12,7 +13,9 @@ setInterval(() => {
 
     const monthName = currentTime.toLocaleString('default', {month: 'long'});
 
-    hr.innerHTML = (currentTime.getHours() < 10 ? "0" : "") + currentTime.getHours();
+    ampm.innerHTML = currentTime.getHours >= 12 ? "AM" : "PM" 
+
+    hr.innerHTML = ((currentTime.getHours() % 12) < 10 ? "0" : "") + (currentTime.getHours() % 12);
     min.innerHTML = (currentTime.getMinutes() < 10 ? "0" : "") + currentTime.getMinutes();
     sec.innerHTML = (currentTime.getSeconds() < 10 ? "0" : "") + currentTime.getSeconds();
 
