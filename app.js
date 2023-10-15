@@ -6,16 +6,30 @@ let month = document.getElementById("month");
 let year = document.getElementById("year");
 let ampm = document.getElementById("ampm");
 
+
 setInterval(() => {
     let currentTime = new Date();
+
 //     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
 //   'July', 'August', 'September', 'October', 'November', 'December'];
-
     const monthName = currentTime.toLocaleString('default', {month: 'long'});
 
+    const hoursFormat = (currentTime.getHours() % 12);
 
-    hr.innerHTML = ((currentTime.getHours() % 12) < 10 ? "0" : "") + (currentTime.getHours() % 12);
-    ampm.innerHTML = currentTime.getHours >= 12 ? "AM" : "PM" 
+    console.log(hoursFormat);
+
+    let hrZero = hoursFormat + 12;
+
+
+
+   
+
+    
+    hr.innerHTML = ((hoursFormat === 0 ? hrZero : " ") + (hoursFormat % 12)) ;
+
+    
+    ampm.innerHTML = currentTime.getHours() >= 12 ? "PM" : "AM" ;
+
 
     min.innerHTML = (currentTime.getMinutes() < 10 ? "0" : "") + currentTime.getMinutes();
     
