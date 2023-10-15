@@ -13,10 +13,12 @@ setInterval(() => {
 
     const monthName = currentTime.toLocaleString('default', {month: 'long'});
 
-    ampm.innerHTML = currentTime.getHours >= 12 ? "AM" : "PM" 
 
     hr.innerHTML = ((currentTime.getHours() % 12) < 10 ? "0" : "") + (currentTime.getHours() % 12);
+    ampm.innerHTML = currentTime.getHours >= 12 ? "AM" : "PM" 
+
     min.innerHTML = (currentTime.getMinutes() < 10 ? "0" : "") + currentTime.getMinutes();
+    
     sec.innerHTML = (currentTime.getSeconds() < 10 ? "0" : "") + currentTime.getSeconds();
 
     date.innerHTML = currentTime.getDate();
